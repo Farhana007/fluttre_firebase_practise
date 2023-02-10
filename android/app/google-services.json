@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "74714994726",
+    "project_id": "practisefirebase-be5d3",
+    "storage_bucket": "practisefirebase-be5d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74714994726:android:1f1e3c8c514f15e0896ee7",
+        "android_client_info": {
+          "package_name": "com.example.fluttre_firebase_practise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74714994726-o3il2tfeffkuaqs9510qjveuoiuisji4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fluttre_firebase_practise",
+            "certificate_hash": "a00196f8928b1cd53eed7cd2a756c31b89d0e44a"
+          }
+        },
+        {
+          "client_id": "74714994726-0b40lpt71vkraa5k2nmep7g38in4oucp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFYwrOp1di0OZhxwVyZ_IqOG6ChGafzy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74714994726-0b40lpt71vkraa5k2nmep7g38in4oucp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
