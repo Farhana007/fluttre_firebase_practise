@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttre_firebase_practise/mail_pass_auth/auth_screen.dart';
+import 'package:fluttre_firebase_practise/to_do_app/to_do_home.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
 
           builder:(context,snapshot){
              if(snapshot.hasData){
-               return HomePage();
+               return SignUpScreen();
              }
              return SignUpScreen();
       })

@@ -43,6 +43,8 @@ dependencies:
   google_sign_in:
   google_sign_in_web:
   flutter_signin_button:
+  otp_text_field:
+  cloud_firestore:
 
 dev_dependencies:
   flutter_test:

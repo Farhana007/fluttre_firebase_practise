@@ -4,6 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'package:get/get.dart';
 
+import '../phone_auth/phone_login_screen.dart';
 import 'auth_screen.dart';
 import 'common_widger_screen.dart';
 import 'home_page.dart';
@@ -111,7 +112,35 @@ class _LoginScreenState extends State<LoginScreen> {
                   Get.back();
                 },
                 child: "Don't Have Account? Sign up".text.make(),
-              )
+              ),
+
+              30.heightBox,
+
+        InkWell(
+          onTap: (){
+            Get.to(()=> LogInScreen());
+          },
+           child: Container(
+            child: Align(
+              alignment: Alignment.center,
+              child: "PHONE LOGIN"
+                  .text
+                  .white
+                  .bold
+                  .size(20)
+                  .align(TextAlign.left)
+                  .make(),
+            ),
+        )
+              .box
+              .height(40)
+              .width(230)
+              .color(Colors.red)
+              .shadow2xl
+              .rounded
+              .make(),
+         ),
+
             ],
           ),
         )

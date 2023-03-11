@@ -18,18 +18,11 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
-
-
   TextEditingController _emailcontroller = TextEditingController();
   TextEditingController _passwordcontroller = TextEditingController();
   TextEditingController _confirmpasswordcontroller = TextEditingController();
 
-
   bool loading = false;
-
-  final GoogleSignIn googleUser = GoogleSignIn();
-
 
 
 
@@ -77,80 +70,82 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 30.heightBox,
-              loading ? CircularProgressIndicator() :  GestureDetector(
-                  onTap: () async {
+                loading
+                    ? CircularProgressIndicator()
+                    : GestureDetector(
+                        onTap: () async {
+                          setState(() {
+                            loading = true;
+                          });
 
-                     setState(() {
-                       loading = true;
-                     });
-
-                    if (_emailcontroller.text == '' ||
-                        _passwordcontroller.text == '') {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("All Field Reqired")));
-                    } else if (_passwordcontroller.text !=
-                        _confirmpasswordcontroller.text) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Password Not Matched")));
-                    } else {
-                      User? register = await AuthFunction().signUpUser(
-                          _emailcontroller.text,
-                          _passwordcontroller.text,
-                          context);
-                      if(register != null){
-                        Get.to(()=> HomePage());
-
-                      }
-
-                    }
-                    setState(() {
-                      loading = false;
-                    });
-                  },
-                  child: Container(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: "Signup"
-                          .text
-                          .white
-                          .bold
-                          .size(20)
-                          .align(TextAlign.left)
-                          .make(),
-                    ),
-                  )
-                      .box
-                      .height(40)
-                      .width(230)
-                      .color(Colors.red)
-                      .shadow2xl
-                      .rounded
-                      .make(),
-                ),
+                          if (_emailcontroller.text == '' ||
+                              _passwordcontroller.text == '') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("All Field Reqired")));
+                          } else if (_passwordcontroller.text !=
+                              _confirmpasswordcontroller.text) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text("Password Not Matched")));
+                          } else {
+                            User? register = await AuthFunction().signUpUser(
+                                _emailcontroller.text,
+                                _passwordcontroller.text,
+                                context);
+                            if (register != null) {
+                              Get.to(() => HomePage());
+                            }
+                          }
+                          setState(() {
+                            loading = false;
+                          });
+                        },
+                        child: Container(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: "Signup"
+                                .text
+                                .white
+                                .bold
+                                .size(20)
+                                .align(TextAlign.left)
+                                .make(),
+                          ),
+                        )
+                            .box
+                            .height(40)
+                            .width(230)
+                            .color(Colors.red)
+                            .shadow2xl
+                            .rounded
+                            .make(),
+                      ),
                 20.heightBox,
                 GestureDetector(
                   onTap: () {
                     Get.to(() => LoginScreen());
                   },
                   child: "Already Have Account? Login".text.make(),
-
                 ),
-
                 20.heightBox,
-
                 Divider(
                   thickness: 2,
                 ),
-              SignInButton(Buttons.GoogleDark, text: "Continue with Google",
+                loading
+                    ? CircularProgressIndicator()
+                    : SignInButton(Buttons.GoogleDark,
+                        text: "Continue with Google", onPressed: () async {
+                        setState(() {
+                          loading = true;
+                        });
+                        await AuthFunction().signInWithGoogle(context);
 
-                     onPressed:()async{
+                        setState(() {
+                          loading = false;
+                        });
 
-
-
-                await AuthFunction().signInWithGoogle(context);
-
-                    } )
-
+                        Get.to(() => HomePage());
+                      })
               ],
             ),
           )
